@@ -15,9 +15,9 @@ function TrendingProduct() {
   const [trendingPost, setTrendingPost] = useState([]);
 
   function getTrendingProduct() {
-    axios
-      .get(SERVER + "trending/products/")
-      .then((data) => setTrendingPost(data.data));
+    axios.get(SERVER + "trending/products/").then((data) => {
+      setTrendingPost(data.data);
+    });
   }
   useEffect(() => {
     getTrendingProduct();
@@ -29,15 +29,20 @@ function TrendingProduct() {
       </div>
       <div style={{ display: "flex" }}>
         {trendingPost.map((item) => {
+          console.log(item);
           return (
-            <Grid md={3}>
-              <Box style={{ margin: 4 }}>
-                <Card>
-                  <Typography>Undal</Typography>
-                  <CardMedia image={item.product.image} title="Paella dish" />
-                </Card>
-              </Box>
-            </Grid>
+            <div>
+              <h3>{item.product.title}</h3>
+              <img
+                src={item.product.image}
+                alt=""
+                style={{
+                  width: 150,
+                  height: 150,
+                  margin: 5,
+                }}
+              />
+            </div>
           );
         })}
       </div>
