@@ -23,7 +23,6 @@ function Home() {
         <Category />
         <TrendingProduct />
         <Product />
-        <MostViewedProduct />
         <Brand />
       </Container>
       <Footer />

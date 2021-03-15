@@ -6,6 +6,11 @@ class ProductSerializer(serializers.ModelSerializer):
         model=Product
         fields="__all__"
         depth=1
+
+        def imageurl(self, obj):
+            request = self.context.get('request')
+            return request.url(image)
+           
    
 class CategorySerializer(serializers.ModelSerializer):
 
@@ -34,6 +39,9 @@ class BrandSerializer(serializers.ModelSerializer):
         model=Brand
         fields="__all__"
         depth=1
+        def imageurl(self, obj):
+            request = self.context.get('request')
+            return request.url(image)
 
 class SliderSerializer(serializers.ModelSerializer):
     class Meta:

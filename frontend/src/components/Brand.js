@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import { SERVER } from "../server";
 import axios from "axios";
 import HeadLine from "./common/HeadLine";
+import {
+  Card,
+  Grid,
+  Button,
+  Typography,
+  CardContent,
+  CardActions,
+  CardMedia,
+} from "@material-ui/core";
 
 function Brand() {
   const [brand, setBrand] = useState([]);
@@ -16,15 +25,30 @@ function Brand() {
       <div>
         <HeadLine title="All" subtitle="Brand" />
       </div>
-      <div style={{ display: "flex" }}>
+      <Grid container spacing={3}>
         {brand.map((item) => {
           return (
-            <div>
-              <h1>{item.title} dd</h1>
-            </div>
+            <Grid
+              item
+              sm={3}
+              xs={6}
+              md={2}
+              lg={2}
+              style={{ marginTop: 10, cursor: "pointer" }}
+            >
+              <Card>
+                <CardContent>
+                  <CardMedia image={item.logo} style={{ height: 120 }} />
+
+                  <Typography align="center" variant="h5">
+                    {item.title}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           );
         })}
-      </div>
+      </Grid>
     </>
   );
 }

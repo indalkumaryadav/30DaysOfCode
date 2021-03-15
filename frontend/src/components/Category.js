@@ -2,8 +2,16 @@ import React, { useState, useEffect } from "react";
 import HeadLine from "../components/common/HeadLine";
 import axios from "axios";
 import { SERVER } from "../server";
-import { Grid, Card, CardActionArea, Box, Typography } from "@material-ui/core";
-import "./category.css";
+import {
+  Card,
+  Grid,
+  Button,
+  Typography,
+  CardContent,
+  CardActions,
+  CardMedia,
+  Container,
+} from "@material-ui/core";
 
 function Category() {
   const [category, setCategory] = useState([]);
@@ -19,26 +27,35 @@ function Category() {
 
   return (
     <>
-      {/* <HeadLine title="All" subtitle="Category" /> */}
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        {category.map((item) => {
-          return (
-            <div
-              className="category"
-              style={{ marginRight: 10, cursor: "pointer" }}
-            >
-              <img
-                src={item.image}
-                alt=""
-                width={60}
-                height={60}
-                style={{ margin: 0 }}
-              />
-              <h3 style={{ textAlign: "center" }}>Title</h3>
-            </div>
-          );
-        })}
-      </div>
+      <HeadLine title="ALl" subtitle="category" />
+      <Container>
+        <Grid container spacing={3}>
+          {category.map((item) => {
+            return (
+              <Grid
+                item
+                sm={3}
+                xs={6}
+                md={2}
+                lg={2}
+                style={{
+                  cursor: "pointer",
+                }}
+                key={item.id}
+              >
+                <Card>
+                  <CardContent>
+                    <CardMedia image={item.image} style={{ height: 100 }} />
+                    <Typography align="center" variant="h5">
+                      {item.title}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
     </>
   );
 }

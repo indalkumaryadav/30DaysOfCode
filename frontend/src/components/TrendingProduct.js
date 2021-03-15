@@ -3,20 +3,23 @@ import axios from "axios";
 import { SERVER } from "../server";
 import HeadLine from "./common/HeadLine";
 import {
-  Grid,
-  Box,
   Card,
+  Grid,
+  Button,
   Typography,
-  CardHeader,
+  CardContent,
+  CardActions,
   CardMedia,
 } from "@material-ui/core";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { Link } from "react-router-dom";
 
 function TrendingProduct() {
-  const [trendingPost, setTrendingPost] = useState([]);
+  const [trendingProduct, setTrendingProduct] = useState([]);
 
   function getTrendingProduct() {
     axios.get(SERVER + "trending/products/").then((data) => {
-      setTrendingPost(data.data);
+      setTrendingProduct(data.data);
     });
   }
   useEffect(() => {
@@ -27,25 +30,40 @@ function TrendingProduct() {
       <div>
         <HeadLine title="Trending" subtitle="Products" />
       </div>
-      <div style={{ display: "flex" }}>
-        {trendingPost.map((item) => {
-          console.log(item);
+
+      <Grid container spacing={3}>
+        {trendingProduct.map((item) => {
           return (
-            <div>
-              <h3>{item.product.title}</h3>
-              <img
-                src={item.product.image}
-                alt=""
-                style={{
-                  width: 150,
-                  height: 150,
-                  margin: 5,
-                }}
-              />
-            </div>
+            <Grid
+              item
+              sm={3}
+              xs={6}
+              md={2}
+              lg={2}
+              style={{ cursor: "pointer" }}
+            >
+              <Link to={`/product/details/${item.id}`}>
+                <Card>
+                  <CardContent>
+                    <CardMedia
+                      image={item.product.image}
+                      style={{ height: 250 }}
+                    />
+                    <Typography align="center" variant="h5">
+                      {item.product.title}
+                    </Typography>
+                  </CardContent>
+                  <CardActions style={{ padding: 0 }}>
+                    <Button variant="contained" fullWidth>
+                      Add To Cart <AddShoppingCartIcon />
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Link>
+            </Grid>
           );
         })}
-      </div>
+      </Grid>
     </>
   );
 }
