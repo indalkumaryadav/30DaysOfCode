@@ -16,7 +16,7 @@ function Slider() {
   }, []);
   return (
     <>
-      <Carousel>
+      <Carousel style={{ marginTop: 10 }}>
         {slider.map((slide) => {
           return (
             <item key={slide.id}>

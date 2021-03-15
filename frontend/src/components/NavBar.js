@@ -15,6 +15,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
+import { Button } from "@material-ui/core";
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -156,6 +158,7 @@ export default function NavBar() {
         >
           <AccountCircle />
         </IconButton>
+
         <p>Profile</p>
       </MenuItem>
     </Menu>
@@ -192,7 +195,7 @@ export default function NavBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+              <Badge badgeContent={1} color="secondary">
                 <ShoppingCartSharpIcon />
               </Badge>
             </IconButton>
@@ -206,7 +209,9 @@ export default function NavBar() {
             >
               <AccountCircle />
             </IconButton>
+            <Button>Login</Button>
           </div>
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"

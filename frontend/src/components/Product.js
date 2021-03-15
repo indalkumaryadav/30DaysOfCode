@@ -40,21 +40,21 @@ function Product() {
               style={{ marginTop: 10, cursor: "pointer" }}
               key={item.id}
             >
-              <Link to={`/product/details/${item.id}`}>
-                <Card>
+              <Card>
+                <Link to={`/product/details/${item.id}`}>
                   <CardContent>
                     <CardMedia image={item.image} style={{ height: 250 }} />
                     <Typography align="center" variant="h5">
                       {item.title}
                     </Typography>
                   </CardContent>
-                  <CardActions style={{ padding: 0 }}>
-                    <Button variant="contained" fullWidth>
-                      Add To Cart <AddShoppingCartIcon />
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Link>
+                </Link>
+                <CardActions style={{ padding: 0 }}>
+                  <Button variant="contained" fullWidth>
+                    Add To Cart <AddShoppingCartIcon />
+                  </Button>
+                </CardActions>
+              </Card>
             </Grid>
           );
         })}
