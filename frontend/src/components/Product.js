@@ -49,11 +49,13 @@ function Product() {
                     </Typography>
                   </CardContent>
                 </Link>
-                <CardActions style={{ padding: 0 }}>
-                  <Button variant="contained" fullWidth>
-                    Add To Cart <AddShoppingCartIcon />
-                  </Button>
-                </CardActions>
+                <Link to="/add/cart">
+                  <CardActions style={{ padding: 0 }}>
+                    <Button variant="contained" fullWidth>
+                      Add To Cart <AddShoppingCartIcon />
+                    </Button>
+                  </CardActions>
+                </Link>
               </Card>
             </Grid>
           );

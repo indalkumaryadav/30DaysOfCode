@@ -16,7 +16,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 import { Button } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -194,11 +194,16 @@ export default function NavBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <ShoppingCartSharpIcon />
-              </Badge>
-            </IconButton>
+            <Link to="/add/cart">
+              <IconButton
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                <Badge badgeContent={1} color="secondary">
+                  <ShoppingCartSharpIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -209,7 +214,12 @@ export default function NavBar() {
             >
               <AccountCircle />
             </IconButton>
-            <Button>Login</Button>
+            <Link to="/login">
+              <Button style={{ color: "white" }}>Login</Button>
+            </Link>
+            <Link to="/signup">
+              <Button style={{ color: "white" }}>SignUp</Button>
+            </Link>
           </div>
 
           <div className={classes.sectionMobile}>

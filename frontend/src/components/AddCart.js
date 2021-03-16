@@ -1,10 +1,14 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { Container, Paper, Grid, Typography } from "@material-ui/core";
 function AddCart() {
   return (
-    <div>
-      <h1>ADD TO CART </h1>
-    </div>
+    <>
+      <Container>
+        <Paper>
+          <Typography>Cart Details</Typography>
+        </Paper>
+      </Container>
+    </>
   );
 }
 

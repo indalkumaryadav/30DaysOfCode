@@ -19,8 +19,7 @@ function ProductDetails() {
   const [allproduct, setAllProduct] = useState([]);
 
   const getProduct = (id) => {
-    axios.get(`http://127.0.0.1:8000/api/all/products/5/`).then((data) => {
-      console.log(data.data);
+    axios.get(`http://127.0.0.1:8000/api/all/products/${id}/`).then((data) => {
       setAllProduct(data.data);
     });
   };

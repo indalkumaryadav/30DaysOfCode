@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product,Category,TrendingProduct,Brand,Slider
+from .models import Product,Category,TrendingProduct,Brand,Slider,ProductView,Customer
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -51,3 +51,14 @@ class SliderSerializer(serializers.ModelSerializer):
         def imageurl(self, obj):
             request = self.context.get('request')
             return request.url(image)
+
+class MostViewsProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ProductView
+        fields="__all__"
+        depth=1
+        def imageurl(self, obj):
+            request = self.context.get('request')
+            return request.url(image)
+
+

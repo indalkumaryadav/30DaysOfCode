@@ -42,8 +42,8 @@ function TrendingProduct() {
               lg={2}
               style={{ cursor: "pointer" }}
             >
-              <Link to={`/product/details/${item.id}`}>
-                <Card>
+              <Card>
+                <Link to={`/product/details/${item.id}`}>
                   <CardContent>
                     <CardMedia
                       image={item.product.image}
@@ -53,13 +53,15 @@ function TrendingProduct() {
                       {item.product.title}
                     </Typography>
                   </CardContent>
+                </Link>
+                <Link to="/add/cart">
                   <CardActions style={{ padding: 0 }}>
                     <Button variant="contained" fullWidth>
                       Add To Cart <AddShoppingCartIcon />
                     </Button>
                   </CardActions>
-                </Card>
-              </Link>
+                </Link>
+              </Card>
             </Grid>
           );
         })}

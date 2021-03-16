@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .serializations import ProductSerializer,CategorySerializer,TrendingProductSerializer,BrandSerializer,SliderSerializer,ProductSerializer
-from .models import Product,Category,TrendingProduct,Brand,Slider
+from .serializations import ProductSerializer,CategorySerializer,TrendingProductSerializer,BrandSerializer,SliderSerializer,ProductSerializer,MostViewsProductSerializer
+from .models import Product,Category,TrendingProduct,Brand,Slider,ProductView,Customer
 from rest_framework.response import Response
 
 class CategoryProductAPIView(APIView):
@@ -59,9 +59,7 @@ class SliderAPIView(APIView):
 
 
 class ProductAPIView(APIView):
-
     
-
     def get(self,request,pk=None):
         
         if pk:
@@ -72,3 +70,11 @@ class ProductAPIView(APIView):
             product=Product.objects.all()
             product_serializer=ProductSerializer(product,many=True,context={'request':request})
             return Response(product_serializer.data)
+
+class MostViewedProductAPIView(APIView):
+    
+    def get(self,request):
+            product_view=ProductView.objects.all()
+            product_view_serializer=MostViewsProductSerializer(product_view,many=True,context={'request':request})
+            return Response(product_view_serializer.data)
+
