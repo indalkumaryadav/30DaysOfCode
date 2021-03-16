@@ -36,10 +36,13 @@ function Brand() {
               lg={2}
               style={{ marginTop: 10, cursor: "pointer" }}
             >
-              <Card>
+              <Card
+                style={{
+                  backgroundColor: "blue",
+                  color: "white",
+                }}
+              >
                 <CardContent>
-                  <CardMedia image={item.logo} style={{ height: 120 }} />
-
                   <Typography align="center" variant="h5">
                     {item.title}
                   </Typography>

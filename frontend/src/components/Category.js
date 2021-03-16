@@ -11,6 +11,7 @@ import {
   CardActions,
   CardMedia,
   Container,
+  Box,
 } from "@material-ui/core";
 
 function Category() {
@@ -43,12 +44,22 @@ function Category() {
                 }}
                 key={item.id}
               >
-                <Card>
+                <Card
+                  style={{
+                    backgroundColor: "red",
+                    color: "white",
+                    fontWeight: "bold",
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: "cover",
+                  }}
+                >
                   <CardContent>
-                    <CardMedia image={item.image} style={{ height: 100 }} />
-                    <Typography align="center" variant="h5">
-                      {item.title}
-                    </Typography>
+                    {/* <CardMedia image={item.image} style={{ height: 100 }} /> */}
+                    <Box>
+                      <Typography align="center" variant="h5">
+                        {item.title}
+                      </Typography>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
