@@ -7,7 +7,7 @@ import AddToCart from "./components/AddCart";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import MostViewedProductDetail from "./components/MostViewedProductDetails";
-
+import CategoryProduct from "./components/CategoryProduct";
 function App() {
   return (
     <Switch>
@@ -17,6 +17,7 @@ function App() {
       <Route path="/add/cart" component={AddToCart} exact />
       <Route path="/login" component={Login} exact />
       <Route path="/signup" component={SignUp} exact />
+      <Route path="/category/product/:id" component={CategoryProduct} exact />
       <Route
         path="/most/viewed/product/details"
         component={MostViewedProductDetail}

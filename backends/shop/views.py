@@ -22,7 +22,18 @@ class CategoryProductAPIView(APIView):
 
         return Response(category_serializer)
 
-
+class SingleCategoryView(APIView):
+    def get(self, request, pk):
+        category_obj = Category.objects.filter(id=pk)
+        category_serializer = CategorySerializer(
+            category_obj, many=True, context={'request': request}).data
+        data = []
+        for cata in category_serializer:
+            product_obj = Product.objects.filter(category=cata['id'])
+            cata['products'] = ProductSerializer(
+                product_obj, many=True, context={'request': request}).data
+            data.append(cata)
+        return Response(data)
 
 class CategoryAPIView(APIView):
 

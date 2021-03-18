@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CategoryProductAPIView,CategoryAPIView,TrendingProductAPIView,BrandAPIView,SliderAPIView,ProductAPIView,MostViewedProductAPIView
+from .views import CategoryProductAPIView,CategoryAPIView,TrendingProductAPIView,BrandAPIView,SliderAPIView,ProductAPIView,MostViewedProductAPIView,SingleCategoryView
 
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     path('brand/', BrandAPIView.as_view(),name="brand"),
     path('slider/', SliderAPIView.as_view(),name="slider"),
     path('product/view/', MostViewedProductAPIView.as_view(),name="product_view"),
+    path('singlecategoris/<int:pk>/', SingleCategoryView.as_view()),
    
 
 ]

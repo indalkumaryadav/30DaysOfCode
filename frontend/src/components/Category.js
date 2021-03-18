@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import HeadLine from "../components/common/HeadLine";
 import axios from "axios";
 import { SERVER } from "../server";
+import { Link } from "react-router-dom";
 import {
   Card,
   Grid,
@@ -53,14 +54,18 @@ function Category() {
                     backgroundSize: "cover",
                   }}
                 >
-                  <CardContent>
-                    {/* <CardMedia image={item.image} style={{ height: 100 }} /> */}
-                    <Box>
-                      <Typography align="center" variant="h5">
-                        {item.title}
-                      </Typography>
-                    </Box>
-                  </CardContent>
+                  <CardActions>
+                    <Link to={`/category/product/${item.id}`}>
+                      <CardContent>
+                        {/* <CardMedia image={item.image} style={{ height: 100 }} /> */}
+                        <Box>
+                          <Typography align="center" variant="h5" color="white">
+                            {item.title}
+                          </Typography>
+                        </Box>
+                      </CardContent>
+                    </Link>
+                  </CardActions>
                 </Card>
               </Grid>
             );
