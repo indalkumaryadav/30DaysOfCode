@@ -1,23 +1,23 @@
+import { Box, Grid } from "@material-ui/core";
 import React from "react";
-import { Grid, Box } from "@material-ui/core";
 
-function HeadLine({ title, subtitle }) {
+const Headline = ({ title, subtitle }) => {
   return (
     <Grid
       container
       style={{
         justifyContent: "center",
         borderBottom: "3px solid green",
-        marginTop: 30,
+        marginTop: "30px",
       }}
     >
       <Box
         style={{
           fontWeight: "bold",
-          fontSize: 20,
+          fontSize: "20px",
           textTransform: "uppercase",
           color: "blue",
-          marginRight: 10,
+          marginRight: "10px",
         }}
       >
         {title}
@@ -25,7 +25,7 @@ function HeadLine({ title, subtitle }) {
       <Box
         style={{
           fontWeight: "bold",
-          fontSize: 20,
+          fontSize: "20px",
           textTransform: "uppercase",
           color: "red",
         }}
@@ -34,6 +34,6 @@ function HeadLine({ title, subtitle }) {
       </Box>
     </Grid>
   );
-}
+};
 
-export default HeadLine;
+export default Headline;
