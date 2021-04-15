@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#indal {
+  animation: slidein 15s infinite;
+}
+
+@keyframes example {
+  0% {
+    color: red;
+    background-color: red;
+  }
+  25% {
+    color: yellow;
+    background-color: red;
+  }
+  50% {
+    color: blue;
+    background-color: red;
+  }
+  100% {
+    color: green;
+    background-color: red;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .indal {
+    display: none;
+  }
+}
+
+@media (max-width: 300px) and (max-width: 500px) {
+  .indal {
+    display: none;
+  }
+}
