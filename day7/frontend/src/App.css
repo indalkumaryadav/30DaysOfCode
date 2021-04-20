@@ -1,0 +1,7 @@
+.indal::-webkit-scrollbar {
+}
+
+.indal {
+  -ms-overflow-style: none;
+  scrollbar-width: 0;
+}
