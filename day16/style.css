@@ -1,0 +1,20 @@
+.slider {
+  display: flex;
+  background-color: green;
+  padding: 10px;
+}
+
+.item {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid red;
+  margin-right: 10px;
+}
+
+.buttonDiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
