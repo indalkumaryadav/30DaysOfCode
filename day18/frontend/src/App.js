@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import NavBar from "./components/NavBar";
+import Slider from "./components/SliderContent";
 
-function App() {
+const App = () => {
+  const [state, setState] = useState(0);
+  useEffect(() => {
+    console.log("Indal Kumar");
+  }, [state]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <NavBar style={{ color: "red" }} />
+      <Slider />
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h1>{state}</h1>
+        <button
+          onClick={() => {
+            setState(state + 1);
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Increase
+        </button>
+        <button
+          onClick={() => {
+            setState(state - 1);
+          }}
+        >
+          Decrease
+        </button>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
